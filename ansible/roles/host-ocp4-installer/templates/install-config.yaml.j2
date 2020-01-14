@@ -51,6 +51,6 @@ platform:
     region: ""
     trunkSupport: "1"
 {% endif %}
-pullSecret: '{{ ocp4_token |  replace("'",'"') }}'
+pullSecret: '{{ ocp4_pull_secret |  replace("'",'"') }}'
 sshKey: |
   {{ idrsapub.content | b64decode }}

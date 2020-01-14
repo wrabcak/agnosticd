@@ -203,12 +203,12 @@ networks:
 
 # These will influence the bastion if it is being deployed
 bastion_instance_type: 2c2g30d
-bastion_instance_image: rhel-guest-7.7u2
+bastion_instance_image: rhel-server-7.7-update-2
 
 # These will influence the utility VM, which is primarily used for disconnected
 # install, but can be used for anything really.
 utilityvm_instance_type: 2c2g30d
-utilityvm_instance_image: rhel-guest-7.7u2
+utilityvm_instance_image: rhel-server-7.7-update-2
 
 # Instances to be provisioned in new project
 # Provide these as a list.

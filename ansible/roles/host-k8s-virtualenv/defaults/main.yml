@@ -1,0 +1,2 @@
+# Default Values for Host K8s Virtualenv
+k8s_virtualenv_home: /opt/virtualenvs/k8s

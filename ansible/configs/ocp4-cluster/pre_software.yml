@@ -93,38 +93,9 @@
   gather_facts: false
   become: true
   tasks:
-  - name: Setup pre-requisite python3 packages
-    package:
-      state: present
-      name:
-      - git
-      - python3-pip
-
-  - name: Setup pre-requisite pip3 packages
-    pip:
-      name:
-      - virtualenv
-      state: present
-      executable: /usr/bin/pip3
-
-  - name: Copy requirements.txt to target for k8s virtualenv
-    copy:
-      src: ./files/requirements_k8s.txt
-      dest: /tmp/requirements_k8s.txt
-
-  - name: "Create virtualenv k8s"
-    pip:
-      requirements: /tmp/requirements_k8s.txt
-      virtualenv: "/opt/virtualenvs/k8s"
-      virtualenv_site_packages: no
-      virtualenv_command: /usr/local/bin/virtualenv
-
-  - name: Ensure system Python3 has selinux library installed
-    pip:
-      state: present
-      executable: /usr/bin/pip3
-      name: selinux
-      version: 0.2.1
+  - name: Setup k8s VirtualEnv
+    include_role:
+      name: host-k8s-virtualenv
 
 - name: Set up NFS Server on UtilityVM
   hosts: utility

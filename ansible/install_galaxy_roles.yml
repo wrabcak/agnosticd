@@ -29,3 +29,7 @@
       when:
         - r_requirements_stat.stat.exists
         - r_requirements_content | length > 0
+
+    - name: Install dynamic sources
+      include_role:
+        name: agnosticd_dynamic
